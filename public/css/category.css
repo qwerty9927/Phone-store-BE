@@ -1,0 +1,183 @@
+.header_info {
+  height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  display: flex;
+  padding: 20px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly
+}
+
+.btn {
+  background-color: blue;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  cursor: pointer;
+  color: #fff;
+  border: none;
+}
+
+.quantity {
+  display: flex;
+}
+
+.quantity span {
+  margin-right: 10px;
+  color: rgb(182, 0, 0);
+}
+
+.search_box {
+  margin: 0 20px;
+  display: flex;
+  
+}
+
+.search_box input {
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  outline: none;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.icon_search {
+  height: 40px;
+  width: 40px;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 40px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.icon_search i {
+  padding: 11px;
+}
+
+.icon_search:hover {
+  background-color: #ddd;
+}
+
+.icon_search:active {
+  transform: scale(.98);
+}
+
+.btn_add {
+  margin-right: 20px;
+}
+
+.btn_close_edit {
+  background-color: rgb(167, 0, 0);
+  display: none;
+}
+
+.btn_add:active, .add:active, .btn_edit:active, .btn_delete:active {
+  transform: scale(.98);
+}
+
+.add_data {
+  padding: 30px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  margin: 15px 0px;
+  border-radius: 10px;
+  display: none;
+}
+
+.col div {
+  text-align: right;
+}
+
+.col div div span {
+  color:rgb(205, 0, 0);
+  font-size: 12px;
+}
+
+.col input {
+  margin: 5px 0 5px 10px;
+  padding: 8px;
+  width: 250px;
+  height: 30px;
+}
+
+.add {
+  padding: 10px;
+  background-color: blue;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.main_info {
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  margin-top: 15px;
+  height: 500px;
+  position: relative;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: coral;
+}
+
+.btn_edit {
+  color: rgb(0, 0, 124);
+}
+
+.btn_delete {
+  color: rgb(147, 0, 0);
+}
+
+.btn_action_edit,
+.btn_action_add {
+  display: none;
+}
+
+.btn_add:active, .btn_edit:active, .btn_delete:active, .btn_action_add:active, .btn_action_edit:active   {
+  transform: scale(.98);
+}
+
+.page ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page ul li {
+  height: 30px;
+  width: 30px;
+  background-color: #aaa;
+  margin: 0 10px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.page ul li:active {
+  transform: scale(.95);
+}
+
