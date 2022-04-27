@@ -10,21 +10,24 @@
         <i class="fa-solid fa-magnifying-glass"></i>
       </div>
     </div>
-    <button class="btn_add btn" onclick="input_add('KHACHHANG', 'Makh')">
-      <i class="fa-solid fa-plus"></i>
-      <span>Thêm</span>
-    </button>
+    <div class="block_add">
+      <button class="btn_add_product btn" onclick="input_add_kh('KHACHHANG', 'Makh')">
+        <i class="fa-solid fa-plus"></i>
+        <span>Thêm khách hàng</span>
+      </button>
+    </div>
     <button class="btn_close_edit btn">
       <i class="fa-solid fa-xmark"></i>
       <span>Close Edit</span>
     </button>
   </div>
 
-    <div class="add_data row">
-      <div class="add_data_col_1 col">
+  <div class="form_data">
+    <div class="customer_data form_customer_page row">
+      <div class="customer_data_col_1 col">
         <div>
           <label for="">Mã khách hàng</label>
-          <input type="text" name="codeCustomer" disabled="true" value="">
+          <input type="text" name="code" disabled="true" value="">
         </div>
         <div>
           <label for="">Họ Tên</label>
@@ -34,7 +37,7 @@
           </div>
         </div>
       </div>
-      <div class="add_data_col_2 col">
+      <div class="customer_data_col_2 col">
         <div>
           <label for="">Địa chỉ</label>
           <input type="text" name="address">
@@ -50,7 +53,7 @@
           </div>
         </div>
       </div>
-      <div class="add_data_col_3 col">
+      <div class="customer_data_col_3 col">
         <div>
           <label for="">Email</label>
           <input type="text" name="email">
@@ -59,11 +62,12 @@
           </div>
         </div>
       </div>
-      <div class="add_data_col_4 col">
-        <button class="btn_action_add btn">Thêm</button>
-        <button class="btn_action_edit btn">Sửa</button>
+      <div class="customer_data_col_4 col">
+        <button class="btn_action_add btn" onclick="submitAdd()">Thêm</button>
+        <button class="btn_action_edit btn" onclick="submitUpdate()">Sửa</button>
       </div>
     </div>
+  </div>
   <div class="main_info">
     <table>
       <tr>

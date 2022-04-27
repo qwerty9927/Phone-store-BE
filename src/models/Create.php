@@ -6,9 +6,17 @@
     function process(){
       return $this->insert($_POST['access'], $_POST['info']);
     }
-
-    function getAll(){
-      return $this->select("SELECT * FROM {$_POST['access']} LIMIT {$_POST['startPoint']}, 10");
+    function createIdCTSP(){
+      $count = intval($_POST['count']);
+      for($i = 0;$i < $count;$i++){
+        $imei = uniqid("ip");
+        $arr = array(
+          "idCD" => $_POST['info']['idCD'],
+          "IMEI" => $imei,
+          "TrangThai" => 1
+        );
+        $this->insert($_POST['secondAccess'], $arr);
+      }
     }
   }
 ?>

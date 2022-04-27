@@ -4,7 +4,7 @@ function handleEvent() {
   const itemsClick = document.querySelectorAll('.left_content_fixed ul li:not(.admin)')
   let keyPress
   console.log(window.location.href)
-  if(window.location.href === 'http://localhost/website/admin/'){
+  if(window.location.href === 'http://localhost/mvc_app/'){
     keyPress = 0
   }else {
     keyPress = JSON.parse(localStorage.getItem('keyPress'))

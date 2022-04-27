@@ -14,6 +14,7 @@
         }
       } else {
         $this->controller = "Resgister";
+        $this->action = "renderView";
       }
       require_once("../src/controllers/{$this->controller}.php");
       $this->controller = new $this->controller;
@@ -25,11 +26,11 @@
           unset($arrURL[1]);
         }
       }
-
+      
       //Handle params
       $this->params = $arrURL ? array_values($arrURL) : [];
-      
       call_user_func([$this->controller, $this->action], $this->params);
+     
     }
     function URLprocess(){
       if(isset($_GET['url'])){

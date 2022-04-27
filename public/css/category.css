@@ -11,13 +11,16 @@
 .row {
   display: flex;
   align-items: center;
-  justify-content: space-evenly
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  
 }
 
 .btn {
   background-color: blue;
   padding: 10px;
   border-radius: 5px;
+  margin-right: 20px;
   box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
   cursor: pointer;
   color: #fff;
@@ -70,10 +73,6 @@
   transform: scale(.98);
 }
 
-.btn_add {
-  margin-right: 20px;
-}
-
 .btn_close_edit {
   background-color: rgb(167, 0, 0);
   display: none;
@@ -83,7 +82,27 @@
   transform: scale(.98);
 }
 
-.add_data {
+/* .form_data {
+  
+} */
+
+.form_product_page { 
+  padding: 30px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  margin: 15px 0px;
+  border-radius: 10px;
+  display: none;
+}
+
+.form_customer_page { 
+  padding: 30px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  margin: 15px 0px;
+  border-radius: 10px;
+  display: none;
+}
+
+.form_staff_page { 
   padding: 30px;
   box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
   margin: 15px 0px;
@@ -107,6 +126,27 @@
   height: 30px;
 }
 
+.label_upload {
+  background-color: indigo;
+  color: white;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+#image_preview {
+  width: 100px;
+}
+
+.selection {
+  width: 250px;
+  height: 30px;
+  margin: 5px 0 5px 10px;
+  text-align: center;
+}
+
 .add {
   padding: 10px;
   background-color: blue;
@@ -120,7 +160,7 @@
   border-radius: 10px;
   box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
   margin-top: 15px;
-  height: 500px;
+  height: 670px;
   position: relative;
 }
 
@@ -134,6 +174,15 @@ th, td {
   text-align: left;
   border-bottom: 1px solid #ddd;
   text-align: center;
+  height: 50px;
+}
+
+td img {
+  height: 34px;
+  transition: .5s;
+}
+td:hover img{
+  height: 100px;
 }
 
 tr:hover {
@@ -180,4 +229,3 @@ tr:hover {
 .page ul li:active {
   transform: scale(.95);
 }
-

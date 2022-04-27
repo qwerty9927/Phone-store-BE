@@ -1,7 +1,10 @@
 <?php
   class Resgister extends Controller{
     function __construct(){
-      $this->view("", "resgisterView", "");
+    }
+
+    function renderView(){
+      $this->view("layoutView1", "resgisterView", "");
     }
 
     function handleResgister($params){

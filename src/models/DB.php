@@ -27,6 +27,15 @@
       return $arr;
     }
 
+    function selectNUM($sql){
+      $arr = array();
+      $result = mysqli_query($this->conn, $sql);
+      while($row = mysqli_fetch_array($result, MYSQLI_NUM)){
+        array_push($arr, $row);
+      }
+      return $arr;
+    }
+
     function insert($table, $data){
       $arr_key = "";
       $arr_value = "";
