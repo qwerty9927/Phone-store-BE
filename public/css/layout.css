@@ -61,6 +61,11 @@ a > li {
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
+  position: relative;
+
+}
+
+.app {
 }
 
 .header {
@@ -168,3 +173,115 @@ body {
 .logOut li:hover {
   background-color: #494e53;
 }
+
+.inner_Alert.active {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .1);
+  z-index: 9999;
+}
+
+.inner_Alert {
+  display: none;
+}
+
+
+.board {
+  font-family: 'Ubuntu', sans-serif;
+  position: relative;
+  width: 1000px;
+  height: 600px;
+  padding: 32px;
+  animation: appear .1s ease-out forwards;
+  background-color: #fff;
+}
+
+.title_account {
+  font-size: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_account {
+  background-color: #fff;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 4px rgba(0,0,0,.1);
+}
+
+#table-wrapper {
+  position:relative;
+  box-shadow: 0 0 10px 4px rgba(0,0,0,.1);
+  border-radius: 10px;
+}
+
+#table-scroll {
+  height: 300px;
+  overflow:auto;  
+  margin-top:20px;
+}
+
+#table-wrapper table {
+  width:100%;
+}
+
+.board th, .board td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  height: 50px;
+}
+
+.board tr:hover {
+  background-color: coral;
+}
+
+.bot-board {
+  background-color: #fff;
+  margin: 20px 0;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 4px rgba(0,0,0,.1);
+}
+
+.bot-board button {
+  padding: 10px;
+  background-color: #1f88f1;
+  border: 0;
+  width: 80px;
+  border-radius: 5px;
+}
+
+.bot-board button:active {
+  transform: scale(.98);
+}
+
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

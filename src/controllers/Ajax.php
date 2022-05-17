@@ -10,6 +10,11 @@
       echo json_encode($obj->nextCode());
     }
 
+    function selectWithName($params){
+      $obj = $this->model("CallData");
+      echo json_encode($obj->selectWithName($params));
+    }
+
     function selectWithCondition($params){
       $obj = $this->model("CallData");
       echo json_encode($obj->selectWithCondition($params));
@@ -41,6 +46,16 @@
     function upload($params){
       $obj = $this->model("Download");
       echo json_encode($obj->uploadImage($params));
+    }
+
+    function checkUser($params){
+      $obj = $this->model("CheckUser");
+      echo json_encode($obj->process($params));
+    }
+
+    function sort($params){
+      $obj = $this->model("CallData");
+      echo json_encode($obj->sort($params));
     }
   }
 ?>

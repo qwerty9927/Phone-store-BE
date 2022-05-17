@@ -3,85 +3,75 @@ $(document).ready(function(){
 })
 
 function submitAdd(){
-  let checkName = 1
-  let checkQuantity = 1
-  let checkDetail = 1
-  let checkCost = 1
-  let checkCpu = 1
-  let checkRam = 1
-  let checkRom = 1
-  let checkBrand = 1
-  let checkProvider = 1
-    let regxUnicode = /[a-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđA-Z][a-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđA-Z0-9-_ ]{4,24}/
-    let regx = /[a-zA-Z][a-zA-Z0-9-_ ]{2,24}/
+    let regxUnicode = /[a-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđA-Z][a-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđA-Z0-9-_ ]{1,24}/
+    let regx = /[a-zA-Z0-9-_ ]{2,24}/
     if(!regxUnicode.test($('.form_data input[name = "name"]').val())){
       $('.form_data input[name = "name"] + div span').text("Tên sản phẩm không lợp lệ")
-      checkName = 0
+      $('.form_data input[name = "name"]').focus()
+      return false
     } else {
       $('.form_data input[name = "fullName"] + div span').text("")
-      checkName = 1
     }
     if(!regxUnicode.test($('.form_data input[name = "detail"]').val())){
       $('.form_data input[name = "detail"] + div span').text("Không hợp lệ")
-      checkDetail = 0
+      $('.form_data input[name = "detail"]').focus()
+      return false
     } else {
       $('.form_data input[name = "detail"] + div span').text("")
-      checkDetail = 1
     }
 
 
     if(!regx.test($('.form_data input[name = "brand"]').val())){
       $('.form_data input[name = "brand"] + div span').text("Không hợp lệ")
-      checkBrand = 0
+      $('.form_data input[name = "brand"]').focus()
+      return false
     } else {
       $('.form_data input[name = "brand"] + div span').text("")
-      checkBrand = 1
     }
     if(!regx.test($('.form_data input[name = "cpu"]').val())){
       $('.form_data input[name = "cpu"] + div span').text("Không hợp lệ")
-      checkCpu = 0
+      $('.form_data input[name = "cpu"]').focus()
+      return false
     } else {
       $('.form_data input[name = "cpu"] + div span').text("")
-      checkCpu = 1
     }
     if(!regx.test($('.form_data input[name = "ram"]').val())){
-      $('.form_data input[name = "Ram"] + div span').text("Không hợp lệ")
-      checkRam = 0
+      $('.form_data input[name = "ram"] + div span').text("Không hợp lệ")
+      $('.form_data input[name = "ram"]').focus()
+      return false
     } else {
       $('.form_data input[name = "ram"] + div span').text("")
-      checkRam = 1
     }
     if(!regx.test($('.form_data input[name = "rom"]').val())){
       $('.form_data input[name = "rom"] + div span').text("Không hợp lệ")
-      checkRom = 0
+      $('.form_data input[name = "rom"]').focus()
+      return false
     } else {
       $('.form_data input[name = "rom"] + div span').text("")
-      checkRom = 1
     }
 
 
     if(!/^[1-9][0-9]*$/.test($('.form_data input[name = "quantity"]').val())){
       $('.form_data input[name = "quantity"] + div span').text("Không lợp lệ")
-      checkQuantity = 0
+      $('.form_data input[name = "quantity"]').focus()
+      return false
     } else {
       $('.form_data input[name = "quantity"] + div span').text("")
-      checkQuantity = 1
     }
     if(!/^[1-9][0-9]*$/.test($('.form_data input[name = "cost"]').val())){
       $('.form_data input[name = "cost"] + div span').text("Không lợp lệ")
-      checkCost = 0
+      $('.form_data input[name = "cost"]').focus()
+      return false
     } else {
       $('.form_data input[name = "cost"] + div span').text("")
-      checkCost = 1
     }
     if($('#select_provider').val() == "0"){
       $('#select_provider + div span').text("Cần lựa chọn")
-      checkProvider = 0
+      $('#select_provider').focus()
+      return false
     } else {
       $('#select_provider + div span').text("")
-      checkProvider = 1
     }
-    if(checkName === 1 && checkQuantity === 1 && checkDetail === 1 && checkCost === 1 && checkBrand === 1 && checkProvider === 1 && checkCpu === 1 && checkRam === 1 && checkRom === 1){
       let url
       if($("#file_upload")[0].files[0]){
         url = Math.ceil(Math.random()*10000) + $("#file_upload")[0].files[0].name
@@ -113,7 +103,6 @@ function submitAdd(){
           access: "SANPHAM",
           startPoint: (parseInt(localStorage.getItem('page')) - 1) * 10,
           secondAccess: "CHITIETSANPHAM",
-          count: $('.form_data input[name = "quantity"]').val(),
           info: {
             idCD: $('.form_data input[name = "code"]').val(),
             TenCD: $('.form_data input[name = "name"]').val(),
@@ -125,7 +114,8 @@ function submitAdd(){
             CPU: $('.form_data input[name = "cpu"]').val(),
             RAM: $('.form_data input[name = "ram"]').val(),
             ROM: $('.form_data input[name = "rom"]').val(),
-            MaNCC: $('#select_provider').val()
+            MaNCC: $('#select_provider').val(),
+            TrangThai: 1
           }
         }
       }).done(function (response){
@@ -139,91 +129,79 @@ function submitAdd(){
             alert("Tạo thất bại")
           }
       })
-    }
-  // })
 }
 
 function submitUpdate(){
-  let checkName = 1
-  let checkQuantity = 1
-  let checkDetail = 1
-  let checkCost = 1
-  let checkCpu = 1
-  let checkRam = 1
-  let checkRom = 1
-  let checkBrand = 1
-  let checkProvider = 1
-    let regxUnicode = /[a-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđA-Z][a-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđA-Z0-9-_ ]{4,24}/
-    let regx = /[a-zA-Z][a-zA-Z0-9-_ ]{2,24}/
+  let regxUnicode = /[a-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđA-Z][a-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđA-Z0-9-_ ]{1,24}/
+    let regx = /[a-zA-Z0-9-_ ]{2,24}/
     if(!regxUnicode.test($('.form_data input[name = "name"]').val())){
       $('.form_data input[name = "name"] + div span').text("Tên sản phẩm không lợp lệ")
-      checkName = 0
+      $('.form_data input[name = "name"]').focus()
+      return false
     } else {
       $('.form_data input[name = "fullName"] + div span').text("")
-      checkName = 1
     }
     if(!regxUnicode.test($('.form_data input[name = "detail"]').val())){
       $('.form_data input[name = "detail"] + div span').text("Không hợp lệ")
-      checkDetail = 0
+      $('.form_data input[name = "detail"]').focus()
+      return false
     } else {
       $('.form_data input[name = "detail"] + div span').text("")
-      checkDetail = 1
     }
 
 
     if(!regx.test($('.form_data input[name = "brand"]').val())){
       $('.form_data input[name = "brand"] + div span').text("Không hợp lệ")
-      checkBrand = 0
+      $('.form_data input[name = "brand"]').focus()
+      return false
     } else {
       $('.form_data input[name = "brand"] + div span').text("")
-      checkBrand = 1
     }
     if(!regx.test($('.form_data input[name = "cpu"]').val())){
       $('.form_data input[name = "cpu"] + div span').text("Không hợp lệ")
-      checkCpu = 0
+      $('.form_data input[name = "cpu"]').focus()
+      return false
     } else {
       $('.form_data input[name = "cpu"] + div span').text("")
-      checkCpu = 1
     }
     if(!regx.test($('.form_data input[name = "ram"]').val())){
-      $('.form_data input[name = "Ram"] + div span').text("Không hợp lệ")
-      checkRam = 0
+      $('.form_data input[name = "ram"] + div span').text("Không hợp lệ")
+      $('.form_data input[name = "ram"]').focus()
+      return false
     } else {
       $('.form_data input[name = "ram"] + div span').text("")
-      checkRam = 1
     }
     if(!regx.test($('.form_data input[name = "rom"]').val())){
       $('.form_data input[name = "rom"] + div span').text("Không hợp lệ")
-      checkRom = 0
+      $('.form_data input[name = "rom"]').focus()
+      return false
     } else {
       $('.form_data input[name = "rom"] + div span').text("")
-      checkRom = 1
     }
-
 
 
     if(!/^[1-9][0-9]*$/.test($('.form_data input[name = "quantity"]').val())){
       $('.form_data input[name = "quantity"] + div span').text("Không lợp lệ")
-      checkQuantity = 0
+      $('.form_data input[name = "quantity"]').focus()
+      return false
     } else {
       $('.form_data input[name = "quantity"] + div span').text("")
-      checkQuantity = 1
     }
     if(!/^[1-9][0-9]*$/.test($('.form_data input[name = "cost"]').val())){
       $('.form_data input[name = "cost"] + div span').text("Không lợp lệ")
-      checkCost = 0
+      $('.form_data input[name = "cost"]').focus()
+      return false
     } else {
       $('.form_data input[name = "cost"] + div span').text("")
-      checkCost = 1
     }
     if($('#select_provider').val() == "0"){
       $('#select_provider + div span').text("Cần lựa chọn")
-      checkProvider = 0
+      $('#select_provider').focus()
+      return false
     } else {
       $('#select_provider + div span').text("")
-      checkProvider = 1
     }
-    if(checkName === 1 && checkQuantity === 1 && checkDetail === 1 && checkCost === 1 && checkBrand === 1 && checkProvider === 1 && checkCpu === 1 && checkRam === 1 && checkRom === 1){
+
       let value = $('.form_data input[name = "code"]').val()
 
       if($("#file_upload")[0].files[0]){
@@ -285,7 +263,6 @@ function submitUpdate(){
             alert("Sửa thất bại")
           }
       })
-    }
 }
 
 function deleteData(access){
@@ -345,7 +322,9 @@ function input_edit_sp(subject){
     }
   }).done(function (response){
     let result = JSON.parse(response)
+    result = result[0]
     console.log(result)
+    
     idMaCTSP = result['MaCTSP']
     $("input[name = code]").val(result['idCD'])
     $("input[name = name]").val(result['TenCD'])
@@ -358,23 +337,6 @@ function input_edit_sp(subject){
     $("input[name = cost]").val(result['Gia'])
     $('#image_preview').attr('src', `./public/img/phone/${result['urlHinh']}`)
   })
-
-  //call Data cho dropdown chi tiet san pham (#select_brand)
-  // $.ajax({
-  //   method: 'POST',
-  //   url: `http://localhost/mvc_app/Ajax/selectAll`,
-  //   data: {
-  //     access: "CHITIETSANPHAM"
-  //   }
-  // }).done(function (response){
-  //   let result = JSON.parse(response)
-  //   let string = ""
-  //   result.forEach((item) => {
-  //     string += `<option value="${item.MaCTSP}">${item.TenThuongHieu}</option>`
-  //   })
-  //   $("#select_brand").html(string)
-  //   $(`#select_brand option[value = ${idMaCTSP}]`).prop('selected', true)
-  // })
 
   //call Data cho dropdown nha cung cap (#select_provider)
   $.ajax({
@@ -413,22 +375,6 @@ function input_add_sp(subject, column){
     let result = JSON.parse(response)
     $('.form_data input[name = "code"]').val(result)
   })
-
-  //call Data cho dropdown chi tiet san pham (#select_brand)
-  // $.ajax({
-  //   method: 'POST',
-  //   url: `http://localhost/mvc_app/Ajax/selectAll`,
-  //   data: {
-  //     access: "CHITIETSANPHAM"
-  //   }
-  // }).done(function (response){
-  //   let result = JSON.parse(response)
-  //   let string = "<option value='0'>--Option--</option>"
-  //   result.forEach((item) => {
-  //     string += `<option value="${item.MaCTSP}">${item.TenThuongHieu}</option>`
-  //   })
-  //   $("#select_brand").html(string)
-  // })
 
   //call Data cho dropdown nha cung cap (#select_provider)
   $.ajax({

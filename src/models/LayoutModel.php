@@ -12,12 +12,12 @@
     }
 
     function getStringUrl(){
-      return array("./QLKH", "./QLNV", "./QLSP", "./QLDH", "./QLHD", "./QLDT", "./QLACCOUNT");
+      return array("./QLKH", "./QLNV", "./QLSP", "./QLDH", "./QLHD", "./QLDT", "./QLACCOUNT", "./QLNCC");
     }
 
     function getStringIcon(){
       return array("fa-solid fa-users-line", "ion ion-person", "fa-solid fa-boxes-stacked", "ion ion-bag",
-        "ion-document-text", "ion ion-stats-bars", "ion-card"
+        "ion-document-text", "ion ion-stats-bars", "ion-card", "ion-card"
       );
     }
 

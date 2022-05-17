@@ -5,15 +5,15 @@
       <p>Số lượng khách hàng</p>
     </div>
     <div class="search_box">
-      <input type="text" placeholder="Search..." id="search_box" onkeyup="search_fetch(this.value,'KHACHHANG', 1)">
+      <input type="text" placeholder="Search..." id="search_box" onkeyup="search_fetch(this.value,'TAIKHOAN', 1)">
       <div class="icon_search">
         <i class="fa-solid fa-magnifying-glass"></i>
       </div>
     </div>
     <div class="block_add">
-      <button class="btn_add_product btn" onclick="input_add_kh('KHACHHANG', 'Makh')">
+      <button class="btn_add_product btn" onclick="input_add_acc('TAIKHOAN', 'MATK')">
         <i class="fa-solid fa-plus"></i>
-        <span>Thêm khách hàng</span>
+        <span>Thêm tài khoản</span>
       </button>
     </div>
     <button class="btn_close_edit btn">
@@ -26,19 +26,19 @@
     <div class="customer_data form_customer_page row">
       <div class="customer_data_col_1 col">
         <div>
-          <label for="">Mã khách hàng</label>
+          <label for="">Mã tài khoản</label>
           <input type="text" name="code" disabled="true" value="">
         </div>
         <div>
-          <label for="">Họ Tên</label>
+          <label for="">Tên tài khoản</label>
           <input type="text" name="fullName">
           <div>
             <span></span>
           </div>
         </div>
         <div>
-          <label for="">Địa chỉ</label>
-          <input type="text" name="address">
+          <label for="">Username</label>
+          <input type="text" name="username" onchange="checkUser(this.value)">
           <div>
             <span></span>
           </div>
@@ -46,22 +46,24 @@
       </div>
       <div class="customer_data_col_2 col">
         <div>
-          <label for="">SDT</label>
-          <input type="text" name="phoneNumber">
+          <label for="">Password</label>
+          <input type="password" name="password">
           <div>
             <span></span>
           </div>
         </div>
         <div>
-          <label for="">Email</label>
-          <input type="text" name="email">
+          <label for="">Re-Password</label>
+          <input type="password" name="re_password">
           <div>
             <span></span>
           </div>
         </div>
         <div>
-          <label for="">Tài khoản</label>
-          <input type="text" name="account" placeholder="Account" onclick="chooseObj('TAIKHOAN')">
+          <label for="">Mã quyền</label>
+          <select name="" id="role" class="selection">
+            
+          </select>
           <div>
             <span></span>
           </div>
@@ -76,12 +78,11 @@
   <div class="main_info">
     <table>
       <tr>
-        <th>Mã khách hàng</th>
-        <th>Họ Tên</th>
-        <th>Địa chỉ</th>
-        <th>Số điện thoại</th>
-        <th>Email</th>
         <th>Mã tài khoản</th>
+        <th>Tên tài khoản</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Mã quyền</th>
         <th>Sửa</th>
         <th>Xóa</th>
       </tr>
@@ -96,4 +97,4 @@
     </div>
   </div>
 </div>
-<script src="./js/scriptCustomer.js"></script>
+<script src="./js/scriptAccount.js"></script>

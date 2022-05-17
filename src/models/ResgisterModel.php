@@ -7,7 +7,7 @@
       parent::__construct();
       if(isset($_POST['submit'])){
         $this->username = $_POST['Username'];
-        $this->password = $_POST['Password'];
+        $this->password = md5($_POST['Password']);
         $sql = "SELECT * FROM TAIKHOAN WHERE Username = '{$this->username}' AND Password = '{$this->password}' AND MAQUYEN != 'KH'";
         $result = $this->select($sql);
         if($result){

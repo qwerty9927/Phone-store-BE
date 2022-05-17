@@ -13,10 +13,13 @@
   <link rel="stylesheet" href="<?php echo $rootURL; ?>/css/login.css">
   <link rel="stylesheet" href="<?php echo $rootURL; ?>/css/homePage.css">
   <link rel="stylesheet" href="<?php echo $rootURL; ?>/css/category.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <script src="./js/jquery_3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
   <title>Document</title>
 </head>
 <body>
+<div class="inner_Alert"></div>
 <div class="app">
   <div class="header">
     <div class="header_fixed">

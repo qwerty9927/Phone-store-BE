@@ -3,31 +3,27 @@ $(document).ready(function(){
 })
 
 function submitAdd(){
-  let checkName = 1
-  let checkAddress = 1
-  let checkPhone = 1
-    if(!/[a-zA-ZÀ-ý][a-zA-Z0-9-_ ]{4,24}/.test($('.form_data input[name = "fullName"]').val())){
+    if(!/[a-zA-ZÀ-ý][a-zA-Z0-9-_ ]{1,24}/.test($('.form_data input[name = "fullName"]').val())){
       $('.form_data input[name = "fullName"] + div span').text("Họ tên không thuộc khoảng 4 - 24 hay không lợp lệ")
-      checkName = 0
+      $('.form_data input[name = "fullName"]').focus()
+      return false
     } else {
       $('.form_data input[name = "fullName"] + div span').text("")
-      checkName = 1
     }
     if(!/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test($('.form_data input[name = "phoneNumber"]').val())){
       $('.form_data input[name = "phoneNumber"] + div span').text("Số điện thoại không lợp lệ")
-      checkPhone = 0
+      $('.form_data input[name = "phoneNumber"]').focus()
+      return false
     } else {
       $('.form_data input[name = "phoneNumber"] + div span').text("")
-      checkPhone = 1
     }
     if(!/[a-zA-Z][a-zA-Z0-9-_/]{4,24}/.test($('.form_data input[name = "address"]').val())){
       $('.form_data input[name = "address"] + div span').text("Địa chỉ không lợp lệ")
-      checkAddress = 0
+      $('.form_data input[name = "address"]').focus()
+      return false
     } else {
       $('.form_data input[name = "address"] + div span').text("")
-      checkAddress = 1
     }
-    if(checkName === 1 && checkAddress === 1 && checkPhone === 1){
       $.ajax({
         method: "POST",
         url: `http://localhost/mvc_app/Ajax/createData`,
@@ -40,7 +36,7 @@ function submitAdd(){
             DiaChi: $('.form_data input[name = "address"]').val(),
             SDT: $('.form_data input[name = "phoneNumber"]').val(),
             Email: $('.form_data input[name = "email"]').val(),
-            MATK: 3,
+            MATK: $('.form_data input[name = "account"]').val(),
             TrangThai: 1
           }
         }
@@ -55,35 +51,31 @@ function submitAdd(){
             alert("Tạo thất bại")
           }
       })
-    }
 }
 
 function submitUpdate(){
-  let checkName = 1
-  let checkAddress = 1
-  let checkPhone = 1
-    if(!/[a-zA-ZÀ-ý][a-zA-Z0-9-_ ]{4,24}/.test($('.form_data input[name = "fullName"]').val())){
+
+    if(!/[a-zA-ZÀ-ý][a-zA-Z0-9-_ ]{1,24}/.test($('.form_data input[name = "fullName"]').val())){
       $('.form_data input[name = "fullName"] + div span').text("Họ tên không thuộc khoảng 4 - 24 hay không lợp lệ")
-      checkName = 0
+      $('.form_data input[name = "fullName"]').focus()
+      return false
     } else {
       $('.form_data input[name = "fullName"] + div span').text("")
-      checkName = 1
     }
     if(!/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test($('.form_data input[name = "phoneNumber"]').val())){
       $('.form_data input[name = "phoneNumber"] + div span').text("Số điện thoại không lợp lệ")
-      checkPhone = 0
+      $('.form_data input[name = "phoneNumber"]').focus()
+      return false
     } else {
       $('.form_data input[name = "phoneNumber"] + div span').text("")
-      checkPhone = 1
     }
     if(!/[a-zA-Z][a-zA-Z0-9-_/]{4,24}/.test($('.form_data input[name = "address"]').val())){
       $('.form_data input[name = "address"] + div span').text("Địa chỉ không lợp lệ")
-      checkAddress = 0
+      $('.form_data input[name = "address"]').focus()
+      return false
     } else {
       $('.form_data input[name = "address"] + div span').text("")
-      checkAddress = 1
     }
-    if(checkName === 1 && checkAddress === 1 && checkPhone === 1 ){
       let value = $('.form_data input[name = "code"]').val()
       $.ajax({
         method: "POST",
@@ -97,6 +89,7 @@ function submitUpdate(){
             DiaChi: $('.form_data input[name = "address"]').val(),
             SDT: $('.form_data input[name = "phoneNumber"]').val(),
             Email: $('.form_data input[name = "email"]').val(),
+            MATK: $('.form_data input[name = "account"]').val(),
             TrangThai: 1
           }
         }
@@ -113,7 +106,6 @@ function submitUpdate(){
             alert("Sửa thất bại")
           }
       })
-    }
 }
 
 function deleteData(access){

@@ -82,10 +82,6 @@
   transform: scale(.98);
 }
 
-/* .form_data {
-  
-} */
-
 .form_product_page { 
   padding: 30px;
   box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
@@ -126,6 +122,20 @@
   height: 30px;
 }
 
+input[name = "account"], input[name = "codeStaff"], input[name = "codeCustomer"] {
+  caret-color: transparent;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+#timeOfOrder, #deliveryTime {
+  caret-color: transparent;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
 .label_upload {
   background-color: indigo;
   color: white;
@@ -156,7 +166,7 @@
 }
 
 .main_info {
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
   margin-top: 15px;
@@ -164,12 +174,17 @@
   position: relative;
 }
 
+.main_info i {
+  margin: 0;
+}
+
+
 table {
   border-collapse: collapse;
   width: 100%;
 }
 
-th, td {
+.main_info th, .main_info td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -177,15 +192,16 @@ th, td {
   height: 50px;
 }
 
-td img {
+.main_info td img {
   height: 34px;
   transition: .5s;
 }
-td:hover img{
+
+.main_info td:hover img{
   height: 100px;
 }
 
-tr:hover {
+.main_info tr:hover {
   background-color: coral;
 }
 
@@ -205,6 +221,52 @@ tr:hover {
 .btn_add:active, .btn_edit:active, .btn_delete:active, .btn_action_add:active, .btn_action_edit:active   {
   transform: scale(.98);
 }
+
+.handleBill {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.handleBill:active {
+  transform: scale(.98);
+}
+
+.detailBill {
+  color: rgb(22, 22, 84);
+  cursor: context-menu;
+  position: relative;
+}
+
+
+.detailData {
+  display: none;
+  position: absolute;
+  width: 200px;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  transform: translate(-100%, -50%);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 4px rgba(0,0,0,.1);
+  text-align: left;
+  color: #000;
+}
+
+.detailData p {
+  font-weight: bold;
+}
+
+.detailData p span {
+  font-weight: 500;
+}
+
+.detailData.active {
+  display: block;
+}
+
+
 
 .page ul {
   display: flex;
@@ -228,4 +290,30 @@ tr:hover {
 
 .page ul li:active {
   transform: scale(.95);
+}
+
+.filter {
+  height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  display: flex;
+  padding: 20px;
+  margin-bottom: 15px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.filter input {
+  outline: none;
+  height: 30px;
+  width: 250px;
+  text-align: center;
+  caret-color: transparent;
+  cursor: pointer;
+}
+
+.activeSort {
+  cursor: pointer; 
+  display: flex; 
+  align-items: center;
 }

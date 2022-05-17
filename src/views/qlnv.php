@@ -36,8 +36,6 @@
               <span></span>
             </div>
           </div>
-        </div>
-        <div class="staff_data_col_2 col">
           <div>
             <label for="">Địa chỉ</label>
             <input type="text" name="address">
@@ -45,6 +43,8 @@
               <span></span>
             </div>
           </div>
+        </div>
+        <div class="staff_data_col_2 col">
           <div>
             <label for="">SDT</label>
             <input type="text" name="phoneNumber">
@@ -52,8 +52,6 @@
               <span></span>
             </div>
           </div>
-        </div>
-        <div class="staff_data_col_3 col">
           <div>
             <label for="">Email</label>
             <input type="text" name="email">
@@ -61,8 +59,15 @@
               <span></span>
             </div>
           </div>
+          <div>
+            <label for="">Tài khoản</label>
+            <input type="text" name="account" placeholder="Account" onclick="chooseObj('TAIKHOAN')">
+            <div>
+              <span></span>
+            </div>
+          </div>
         </div>
-        <div class="staff_data_col_4 col">
+        <div class="staff_data_col_3 col">
           <button class="btn_action_add btn" onclick="submitAdd()">Thêm</button>
           <button class="btn_action_edit btn"  onclick="submitUpdate()">Sửa</button>
         </div>
@@ -76,6 +81,7 @@
         <th>Địa chỉ</th>
         <th>Số điện thoại</th>
         <th>Email</th>
+        <th>Mã tài khoản</th>
         <th>Sửa</th>
         <th>Xóa</th>
       </tr>
